@@ -4,9 +4,14 @@ const bodyParser = require("body-parser");
 
 // DB Config
 const { mongoURI } = require("./config/keys.js");
+// Routes
+const users = require("./routes/users");
 
 const app = express();
 
+// Set View Engine
+app.set("view engine", "pug");
+app.set("views", "./views");
 // Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -19,6 +24,9 @@ mongoose
 app.get("/", (req, res) => {
   res.send("Hello Docker");
 });
+
+// Use Routes
+app.use("/users", users);
 
 const port = process.env.PORT || 3000;
 

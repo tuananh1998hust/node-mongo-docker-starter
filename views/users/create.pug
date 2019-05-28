@@ -1,0 +1,17 @@
+h1  Create New User
+if msg
+  p #{msg}
+form(action="/users/create", method="POST")
+  label(for="name") Name
+  <br />
+  input(type="text", name="name", placeholder="Name")
+  <br />
+  label(for="email") Email
+  <br />
+  input(type="email", name="email", placeholder="Email")
+  <br />
+  label(for="phone") Phone
+  <br />
+  input(type="text", name="phone", placeholder="Phone")
+  <br />
+  button  ADD
